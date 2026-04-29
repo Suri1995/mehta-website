@@ -1,4 +1,8 @@
-import { X, Check, ArrowRight } from "lucide-react";
+// import { X, Check, ArrowRight } from "lucide-react";
+import Wrong from "@/public/cross_transparent.png"
+import Check from "@/public/check_transparent.png"
+import RightArrow from "@/public/right.png"
+import Image from "next/image";
 
 const comparisons = [
   {
@@ -29,7 +33,7 @@ const comparisons = [
 
 export function BeforeAfter() {
   return (
-    <section className="py-16 md:py-24 bg-muted/50">
+    <section className="py-16 md:py-24 bg-muted/50 max-w-7xl">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
@@ -51,7 +55,7 @@ export function BeforeAfter() {
             >
               {/* Category Header */}
               <div className="bg-primary px-6 py-4">
-                <h3 className="font-serif text-xl font-bold text-primary-foreground">
+                <h3 className="font-serif flex justify-center text-xl font-bold text-primary-foreground">
                   {item.category}
                 </h3>
               </div>
@@ -59,9 +63,10 @@ export function BeforeAfter() {
               <div className="p-6">
                 <div className="grid grid-cols-[1fr,auto,1fr] gap-4 items-center">
                   {/* Before */}
+                  <div className="flex items-center justify-center gap-5">
                   <div className="text-center">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <X className="h-6 w-6 text-red-500" />
+                      <Image src={Wrong} alt="wrong-image" width={6} height={6} className="h-6 w-6 text-red-500" />
                     </div>
                     <span className="text-xs font-semibold text-red-500 uppercase tracking-wider block mb-2">
                       Before
@@ -71,24 +76,25 @@ export function BeforeAfter() {
 
                   {/* Arrow */}
                   <div className="flex items-center justify-center">
-                    <ArrowRight className="h-6 w-6 text-secondary" />
+                    <Image src={RightArrow} alt="arrow-right" width={6} height={6} className="h-6 w-6 text-secondary" />
                   </div>
 
                   {/* After */}
                   <div className="text-center">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <Check className="h-6 w-6 text-green-500" />
+                      <Image src={Check} alt="check-icon" width={6} height={6} className="h-6 w-6 text-green-500" />
                     </div>
                     <span className="text-xs font-semibold text-green-500 uppercase tracking-wider block mb-2">
                       After
                     </span>
                     <p className="text-sm text-foreground">{item.after}</p>
                   </div>
+                  </div>
                 </div>
 
                 {/* Result Badge */}
                 <div className="mt-6 text-center">
-                  <span className="inline-block px-4 py-2 bg-secondary/20 text-secondary font-semibold rounded-full text-sm">
+                  <span className="inline-block px-4 py-2 bg-foreground/20 text-foreground font-semibold rounded-full text-sm">
                     Result: {item.savings}
                   </span>
                 </div>

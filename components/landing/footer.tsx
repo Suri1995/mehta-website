@@ -1,5 +1,15 @@
+"use client";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import Image from "next/image";
+import LinkedIn from "@/public/linkedin.webp"
+import Twitter from "@/public/twitter.webp"
+import FaceBook from "@/public/facebook.webp"
+import Instagram from "@/public/instagram-white.webp"
+import { useState } from "react";
+import ArrowRight from "@/public/ARROW.png"
+import MapPin from "@/public/mapPin.webp"
+import Phone from "@/public/phone.webp"
+import Mail from "@/public/mail.webp"
 
 const quickLinks = [
   { href: "#services", label: "Our Services" },
@@ -8,6 +18,7 @@ const quickLinks = [
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faq", label: "FAQs" },
   { href: "#contact", label: "Contact Us" },
+  { href: "#", label: "Privacy Policy"}
 ];
 
 const services = [
@@ -22,32 +33,60 @@ const services = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: LinkedIn, href: "#", label: "LinkedIn" },
   { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: FaceBook, href: "#", label: "Facebook" },
   { icon: Instagram, href: "#", label: "Instagram" },
 ];
 
+const contactInfo = [
+  {
+    icon: MapPin,
+    description: (
+      <>
+      501, Trade Centre, BKC, <br/>Bandra East, Mumbai - 400051
+      </>
+    ),
+  },
+  {
+    icon: Phone,
+    description: "+91 98765 43210"
+  },
+  {
+    icon: Mail,
+    description: "info@chatterassociates.com"
+  },
+];
+
 export function Footer() {
+
+  const [ allQuickLinks, setAllQuickLinks] = useState(false);
+  const [ allServices, setAllServices ] = useState(false);
+
+  const visibleQuickLinks = allQuickLinks
+    ? quickLinks
+    : quickLinks.slice(0, 4);
+
+  const visibleServices = allServices
+    ? services
+    : services.slice(0, 4); 
+
+
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-foreground text-background max-w-7xl">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-secondary-foreground font-serif font-bold text-xl">C&A</span>
-              </div>
-              <div>
-                <h3 className="font-serif font-bold text-xl text-background">
-                  Chatter & Associates
-                </h3>
-                <p className="text-xs text-background/60 tracking-wider uppercase">
-                  Chartered Accountants
-                </p>
-              </div>
+              <Image
+                src="logo-white.webp"
+                alt="Mehta-logo"
+                width={300}
+                height={150}
+                className="h-auto w-auto"
+              />
             </Link>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
               Expert Chartered Accountants providing comprehensive tax planning, 
@@ -62,7 +101,15 @@ export function Footer() {
                   className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                <div>
+                  <Image
+                  src={social.icon}
+                  alt={social.label}
+                  width={20}
+                  height={20}
+                  className="h-5 w-5"
+                />
+                </div>
                 </a>
               ))}
             </div>
@@ -72,7 +119,7 @@ export function Footer() {
           <div>
             <h4 className="font-serif font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
+              {(allQuickLinks ? quickLinks : quickLinks.slice(0, 4)).map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -83,13 +130,31 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            {quickLinks.length > 4 && (
+              <button
+                type="button"
+                onClick={() => setAllQuickLinks(!allQuickLinks)}
+                className="mt-4 text-sm font-medium text-background/40 hover:underline flex justify-center items-center gap-2"
+              >
+                {allQuickLinks ? "Read Less" : "Read More"}
+                {!allQuickLinks && (
+                  <Image
+                    src={ArrowRight}
+                    alt="arrow"
+                    width={12}
+                    height={12}
+                    className="h-3 w-3"
+                  />
+                )}
+              </button>
+            )}
           </div>
 
           {/* Services */}
           <div>
             <h4 className="font-serif font-bold text-lg mb-6">Our Services</h4>
             <ul className="space-y-3">
-              {services.map((service) => (
+              {(allServices ? services : services.slice(0, 4)).map((service) => (
                 <li key={service}>
                   <Link
                     href="#services"
@@ -100,37 +165,50 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            {services.length > 4 && (
+              <button
+                type="button"
+                onClick={() => setAllServices(!allServices)}
+                className="mt-4 text-sm font-medium text-background/40 hover:underline flex justify-center items-center gap-2"
+              >
+                {allServices ? "Read Less" : "Read More"}
+                {!allQuickLinks && (
+                  <Image
+                    src={ArrowRight}
+                    alt="arrow"
+                    width={12}
+                    height={12}
+                    className="h-3 w-3 text-background/40"
+                  />
+                )}
+              </button>
+            )}
           </div>
 
           {/* Contact Info */}
           <div>
             <h4 className="font-serif font-bold text-lg mb-6">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
-                <span className="text-background/70 text-sm">
-                  501, Trade Centre, BKC,<br />
-                  Bandra East, Mumbai - 400051
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-secondary shrink-0" />
-                <a
-                  href="tel:+919876543210"
-                  className="text-background/70 hover:text-secondary transition-colors text-sm"
-                >
-                  +91 98765 43210
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-secondary shrink-0" />
-                <a
-                  href="mailto:info@chatterassociates.com"
-                  className="text-background/70 hover:text-secondary transition-colors text-sm"
-                >
-                  info@chatterassociates.com
-                </a>
-              </li>
+            <ul className="space-y-3">
+              {contactInfo.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <li key={index} className="flex items-center">
+                    <div className="w-10 flex-shrink-0 flex justify-center mt-1">
+                      <Image
+                        src={item.icon}
+                        alt="contact icon"
+                        className="h-6 w-6 object-contain opacity-80"
+                      />
+                    </div>
+
+                    <div className="ml-2">
+                      <p className="text-background/70 text-sm m-0">
+                        {item.description}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -139,22 +217,16 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-background/10">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/60">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-background/60">
             <p>
               © {new Date().getFullYear()} Chatter & Associates. All rights reserved.
             </p>
-            <div className="flex gap-6">
-              <Link href="#" className="hover:text-secondary transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-secondary transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-secondary transition-colors">
-                Sitemap
-              </Link>
-            </div>
           </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-background/60">
+              <p>
+                Developed by{" "}<a href="https://sellute.com/" className="underline font-bold">Sellute</a>
+              </p>
+            </div>
         </div>
       </div>
     </footer>
