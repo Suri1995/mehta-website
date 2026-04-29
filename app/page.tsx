@@ -52,17 +52,17 @@ export default function Home() {
           <Problems />
         </section>
         <BeforeAfter />
-        <section id="locations">
-          <Locations />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
         <section id="trust">
           <Trust />
         </section>
         <section id="faq">
           <FAQ />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+        <section id="locations">
+          <Locations />
         </section>
       </div>
       

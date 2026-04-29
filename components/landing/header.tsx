@@ -61,6 +61,8 @@ export function Header() {
              alt="Rohit metha logo "
              width={400}
              height={100}
+             className="w-90 h-18"
+             loading="eager"
            />
            
 

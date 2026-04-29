@@ -74,8 +74,8 @@ export function Trust() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-background max-w-7xl mx-auto">
-      <div className="container mx-auto px-4">
+    <section id="trust" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4 max-w-7xl">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">

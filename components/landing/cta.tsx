@@ -10,9 +10,9 @@ const benefits = [
 
 export function CTA() {
   return (
-    <section className="py-7 md:py-20 bg-gradient-to-br from-secondary via-secondary to-secondary/90 relative overflow-hidden max-w-7xl">
+    <section className="py-7 md:py-20 bg-gradient-to-br from-secondary via-secondary to-secondary/90 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 max-w-7xl">
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
       </div>

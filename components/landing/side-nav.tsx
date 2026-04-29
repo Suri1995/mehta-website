@@ -10,9 +10,10 @@ const navItems = [
   { id: "team", label: "Our Team" },
   { id: "testimonials", label: "Testimonials" },
   { id: "problems", label: "Problems We Solve" },
-  { id: "locations", label: "Locations" },
-  { id: "contact", label: "Contact" },
+  { id: "before-after", label: "Before After" },
+  { id: "trust", label: "Why Trust Us" },
   { id: "faq", label: "FAQs" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function SideNav() {

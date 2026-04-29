@@ -73,9 +73,9 @@ export function Footer() {
 
 
   return (
-    <footer className="bg-foreground text-background max-w-7xl">
+    <footer className="bg-foreground text-background">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-4 py-12 md:py-16 max-w-7xl">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
