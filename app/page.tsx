@@ -15,7 +15,7 @@ import { FAQ } from "@/components/landing/faq";
 import { Footer } from "@/components/landing/footer";
 import { SideNav } from "@/components/landing/side-nav";
 import { MobileNav } from "@/components/landing/mobile-nav";
-import { FloatingCTA } from "@/components/landing/floating-cta";
+// import { FloatingCTA } from "@/components/landing/floating-cta";
 
 export default function Home() {
   return (
@@ -23,10 +23,10 @@ export default function Home() {
       <Header />
       <SideNav />
       <MobileNav />
-      <FloatingCTA />
+      {/* <FloatingCTA /> */}
       
       {/* Hero - Full width */}
-      <section id="hero">
+      <section id="hero" className="bg-gradient-to-br from-primary via-primary to-primary/90">
         <Hero />
       </section>
       

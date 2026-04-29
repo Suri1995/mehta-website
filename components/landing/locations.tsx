@@ -20,7 +20,7 @@ const locations = [
 
 export function Locations() {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-16 md:py-24 bg-background max-w-7xl">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
@@ -76,27 +76,13 @@ export function Locations() {
                 className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 asChild
               >
-                <a href={location.mapUrl} target="_blank" rel="noopener noreferrer">
+                <a href="https://maps.app.goo.gl/pCo2vmLy7FujAuSm9" target="_blank" rel="noopener noreferrer">
                   <Navigation className="mr-2 h-4 w-4" />
                   Get Directions
                 </a>
               </Button>
             </div>
           ))}
-        </div>
-
-        {/* Virtual Consultation Banner */}
-        <div className="mt-12 bg-primary/5 rounded-2xl p-8 max-w-4xl mx-auto text-center border border-primary/10">
-          <h3 className="font-serif text-2xl font-bold text-foreground mb-3">
-            Can&apos;t Visit? No Problem!
-          </h3>
-          <p className="text-muted-foreground mb-6">
-            We serve clients across India through secure video consultations. 
-            Distance is no barrier to quality financial advice.
-          </p>
-          <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
-            Schedule Virtual Meeting
-          </Button>
         </div>
       </div>
     </section>

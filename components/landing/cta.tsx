@@ -10,7 +10,7 @@ const benefits = [
 
 export function CTA() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-secondary via-secondary to-secondary/90 relative overflow-hidden">
+    <section className="py-7 md:py-20 bg-gradient-to-br from-secondary via-secondary to-secondary/90 relative overflow-hidden max-w-7xl">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
@@ -41,7 +41,13 @@ export function CTA() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-base px-8"
+              className="relative px-6 py-3 font-semibold text-white rounded-2xl bg-primary 
+                          transition-all duration-300 ease-out
+                          animate-breathe
+                          hover:scale-105 hover:-translate-y-1
+                          hover:shadow-[0_10px_30px_rgba(99,102,241,0.5)]
+                          active:scale-95 active:translate-y-0
+                          overflow-hidden"
             >
               <Calendar className="mr-2 h-5 w-5" />
               Book Free Consultation
@@ -50,7 +56,10 @@ export function CTA() {
             <Button
               size="lg"
               variant="outline"
-              className="border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 font-semibold text-base px-8"
+              className=" hover:bg-accent border-secondary-foreground/30 text-secondary-foreground bg-sidebar-accent/70 
+              font-semibold text-base px-8 
+              hover:scale-105 hover:-translate-y-1 
+              hover:shadow-[0_12px_35px_rgba(0,0,0,0.25)]"
             >
               <Phone className="mr-2 h-5 w-5" />
               Call: +91 98765 43210
