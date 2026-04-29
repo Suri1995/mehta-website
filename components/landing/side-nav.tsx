@@ -116,9 +116,9 @@ export function SideNav() {
         pointerEvents: isVisible ? 'auto' : 'none',
         willChange: 'transform, opacity',
       }}
-      className="fixed left-4 top-1/2 z-40 hidden lg:block transition-[transform,opacity] duration-300 ease-out backface-hidden"
+      className="fixed left-4 top-1/2 z-40 hidden lg:block transition-[transform,opacity] duration-300 ease-out backface-hidden "
     >
-      <nav className="bg-white rounded-2xl shadow-xl border border-border/50 py-5 px-1 min-w-[170px]">
+      <nav className="bg-white rounded-2xl shadow-xl border border-border/50 py-5 px-1 min-w-[180px]">
         <ul className="flex flex-col gap-0.5">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;

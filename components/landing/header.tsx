@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,8 +19,9 @@ export function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="hidden md:block bg-primary text-primary-foreground py-2.5">
-        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
+      <div className="hidden md:block bg-primary text-primary-foreground py-2.5 justify-end">
+        <div className="mx-auto px-4 max-w-7xl">
+        <div className="container  flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-secondary transition-colors">
               <Phone className="h-4 w-4" />
@@ -41,37 +43,32 @@ export function Header() {
             </span>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Main Header */}
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300  ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg"
             : "bg-white"
         }`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-primary-foreground font-serif font-bold text-xl">C&A</span>
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="font-serif font-bold text-xl text-primary leading-tight">
-                  Chatter & Associates
-                </h1>
-                <p className="text-xs text-muted-foreground tracking-wider uppercase">
-                  Chartered Accountants
-                </p>
-              </div>
-            </Link>
+        <div className="container mx-auto px-2 max-w-7xl justify-end">
+          <div className="flex items-center justify-between h-20 ">
+           <Image 
+             src={"/metha-logo.webp"} 
+             alt="Rohit metha logo "
+             width={400}
+             height={100}
+           />
+           
 
+    
             {/* Contact Info - Desktop */}
             <div className="hidden lg:flex items-center gap-8">
-              <a href="tel:+919876543210" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <a href="tel:+919876543210" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors -my-15">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center ">
                   <Phone className="h-4 w-4 text-primary" />
                 </div>
                 <div>
@@ -79,7 +76,7 @@ export function Header() {
                   <p className="text-sm font-semibold">+91 98765 43210</p>
                 </div>
               </a>
-              <a href="mailto:info@chatterassociates.com" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+              <a href="mailto:info@chatterassociates.com" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors ">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                   <Mail className="h-4 w-4 text-primary" />
                 </div>
