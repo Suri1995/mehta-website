@@ -38,7 +38,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground">
+    <section id="contact" className="py-16 md:py-24 bg-primary text-primary-foreground max-w-7xl">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
@@ -55,7 +55,7 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20">
+          <div className="h-fit bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20">
             <h3 className="font-serif text-2xl font-bold mb-6">
               Book a Free Consultation
             </h3>
@@ -128,7 +128,7 @@ export function Contact() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold"
+                className="w-full bg-background text-foreground hover:bg-secondary font-semibold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -206,29 +206,6 @@ export function Contact() {
                       Sunday: Closed
                     </p>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* WhatsApp CTA */}
-            <div className="bg-green-500/20 rounded-2xl p-6 border border-green-500/30">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shrink-0">
-                  <MessageCircle className="h-7 w-7 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold text-lg mb-1">Quick Connect on WhatsApp</h4>
-                  <p className="text-primary-foreground/70 text-sm mb-3">
-                    Get instant responses to your queries
-                  </p>
-                  <Button
-                    asChild
-                    className="bg-green-500 hover:bg-green-600 text-white"
-                  >
-                    <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
-                      Chat Now
-                    </a>
-                  </Button>
                 </div>
               </div>
             </div>

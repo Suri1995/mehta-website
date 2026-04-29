@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+import ArrowRight from "@/public/right-arrow-grey.webp";
+
 import {
   Accordion,
   AccordionContent,
@@ -44,7 +47,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-16 md:py-24 bg-muted/50">
+    <section id="faq" className="py-16 md:py-24 bg-muted/50 max-w-7xl">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
@@ -67,8 +70,8 @@ export function FAQ() {
                 className="bg-card border border-border rounded-xl px-6 overflow-hidden data-[state=open]:border-secondary/50 data-[state=open]:shadow-lg transition-all"
               >
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-secondary py-5 [&[data-state=open]>svg]:text-secondary">
-                  <span className="flex items-start gap-4">
-                    <span className="text-secondary font-serif text-lg">
+                  <span className="flex flex-row items-center gap-4">
+                    <span className="text-secondary font-roboto text-md">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span>{faq.question}</span>
@@ -89,9 +92,16 @@ export function FAQ() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center text-secondary font-semibold hover:underline"
+            className="inline-flex items-center text-secondary font-semibold hover:underline gap-1"
           >
-            Contact Us →
+            Contact Us
+            <Image
+              src={ArrowRight}
+              alt="Arrow-right"
+              width={3}
+              height={3}
+              className="w-3 h-3"
+            />
           </a>
         </div>
       </div>
