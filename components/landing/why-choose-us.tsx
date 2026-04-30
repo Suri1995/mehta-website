@@ -98,9 +98,9 @@ export function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="py-7 md:py-20 bg-primary text-primary-foreground relative overflow-hidden max-w-7xl mx-auto"
+      className="py-7 md:py-20 bg-primary text-primary-foreground relative overflow-hidden mx-auto"
     >
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
 
         {/* Header */}
         <div className="text-center mb-10 md:mb-12">

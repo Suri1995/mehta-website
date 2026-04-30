@@ -36,15 +36,15 @@ export function Hero() {
           {/* Content */}
           <div className="text-center">
             <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <Badge className="bg-secondary/20 text-secondary border-secondary/30 px-4 py-1.5">
-                <Star className="h-3.5 w-3.5 mr-1.5 fill-secondary" />
+              <Badge className="bg-secondary/20 text-primary-foreground border-secondary/30 px-4 py-1.5">
+                <Star className="h-3.5 w-3.5 mr-1.5 text-primary-foreground" />
                 4.9/5 Rating
               </Badge>
-              <Badge className="bg-secondary/20 text-secondary border-secondary/30 px-4 py-1.5">
+              <Badge className="bg-secondary/20 text-primary-foreground border-secondary/30 px-4 py-1.5">
                 <Shield className="h-3.5 w-3.5 mr-1.5" />
                 ICAI Certified
               </Badge>
-              <Badge className="bg-secondary/20 text-secondary border-secondary/30 px-4 py-1.5">
+              <Badge className="bg-secondary/20 text-primary-foreground border-secondary/30 px-4 py-1.5">
                 <Award className="h-3.5 w-3.5 mr-1.5" />
                 Award Winning
               </Badge>
@@ -52,7 +52,7 @@ export function Hero() {
 
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Your Trusted{" "}
-              <span className="text-secondary">Financial Partners</span>{" "}
+              <span className="text-sidebar-accent">Financial Partners</span>{" "}
               for Growth & Success
             </h1>
 
@@ -64,7 +64,7 @@ export function Hero() {
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               {highlights.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-secondary" />
+                  <CheckCircle2 className="h-4 w-4 text-sidebar-accent" />
                   {item}
                 </div>
               ))}
@@ -97,7 +97,7 @@ export function Hero() {
             <div className="flex justify-center gap-6 md:gap-16 flex-wrap">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="font-serif text-2xl md:text-4xl font-bold text-secondary">
+                  <div className="font-serif text-2xl md:text-4xl font-bold text-sidebar">
                     <div className="flex items-center justify-center">
                       <Count
                         end={parseInt(stat.value.replace(/\D/g, ""))}
@@ -106,7 +106,7 @@ export function Hero() {
                       <span>{stat.value.replace(/[0-9]/g, "")}</span>
                     </div>
                   </div>
-                  <div className="text-sm text-primary-foreground/70 mt-2">
+                  <div className="text-sm text-sidebar mt-2">
                     {stat.label}
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export function Hero() {
 
             {/* Trust */}
             <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-sm text-center text-primary-foreground/60 mb-4">
+              <p className="text-sm text-center text-sidebar mb-4">
                 Trusted by Leading Businesses
               </p>
               <div className="flex justify-center gap-8 opacity-60">
