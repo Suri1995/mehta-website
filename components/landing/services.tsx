@@ -87,8 +87,8 @@ export function Services() {
   const visibleServices = showAll ? services : services.slice(0, 4);
 
   return (
-    <section className="py-7 md:py-20 bg-muted/50 max-w-7xl mx-auto">
-      <div className="container mx-auto px-4">
+    <section className="py-7 md:py-20 bg-muted/50 mx-auto">
+      <div className="container mx-auto px-4 max-w-7xl">
 
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
@@ -111,12 +111,12 @@ export function Services() {
               className="group bg-card rounded-2xl p-6 border hover:shadow-xl transition-all flex flex-col"
             >
               {/* ✅ ONLY IMAGE */}
-              <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary transition">
+              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary transition">
                 <Image
                   src={service.icon}
                   alt={service.title}
-                  width={40}
-                  height={40}
+                  width={25}
+                  height={25}  
                 />
               </div>
 
@@ -137,7 +137,7 @@ export function Services() {
                 ))}
               </ul>
 
-              <Button variant="ghost" className="w-full">
+              <Button variant="ghost" className="w-full bg-gray-300">
                 Learn More
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

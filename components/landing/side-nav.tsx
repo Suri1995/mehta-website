@@ -10,9 +10,10 @@ const navItems = [
   { id: "team", label: "Our Team" },
   { id: "testimonials", label: "Testimonials" },
   { id: "problems", label: "Problems We Solve" },
-  { id: "locations", label: "Locations" },
-  { id: "contact", label: "Contact" },
+  { id: "before-after", label: "Before After" },
+  { id: "trust", label: "Why Trust Us" },
   { id: "faq", label: "FAQs" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function SideNav() {
@@ -118,7 +119,7 @@ export function SideNav() {
       }}
       className="fixed left-4 top-1/2 z-40 hidden lg:block transition-[transform,opacity] duration-300 ease-out backface-hidden "
     >
-      <nav className="bg-white rounded-2xl shadow-xl border border-border/50 py-5 px-1 min-w-[180px]">
+      <nav className="bg-white rounded-2xl shadow-xl border border-border/50 py-5 px-1 min-w-[180px] mt-18">
         <ul className="flex flex-col gap-0.5">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
@@ -127,7 +128,7 @@ export function SideNav() {
               <li key={item.id}>
                 <button
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative flex items-center w-full text-left py-2.5 px-4 rounded-lg transition-colors duration-150 ${
+                  className={`relative flex items-center w-full text-left py-2 px-4 rounded-lg transition-colors duration-150 ${
                     isActive
                       ? "text-primary font-semibold bg-primary/5"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"

@@ -103,12 +103,12 @@ export function Testimonials() {
   };
 
   return (
-    <section className="max-w-7xl py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-accent/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full translate-x-1/2 translate-y-1/2" />
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto px-4 relative max-w-7xl">
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-16">
           <span className="inline-block bg-accent/10 text-accent px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider mb-4">
@@ -125,22 +125,19 @@ export function Testimonials() {
 
         {/* Rating Summary Card */}
         <div className="flex justify-center items-center gap-5 md:gap-12 mb-12 p-6 bg-card rounded-2xl border border-border shadow-sm max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex justify-center items-center gap-1 max-w-7xl">
             <div className="flex flex-col items-center justify-center">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Image
-                    key={i}
-                    src={Star}
-                    alt="star-icon"
-                    width={24}
-                    height={24}
-                    className="w-6 h-6"
-                  />
-                ))}
-              </div>
-              <div className="flex flex-col items-center justify-center">
+              <div className="flex gap-1">
+                <Image
+                  src={Star}
+                  alt="star-icon"
+                  width={24}
+                  height={24}
+                   className="w-4 h-4 mt-1"
+                />
                 <p className="font-bold text-foreground text-lg">4.9 / 5</p>
+              </div>
+              <div className="flex items-center justify-center">
                 <p className="text-xs text-muted-foreground">Average Rating</p>
               </div>
             </div>
@@ -177,7 +174,7 @@ export function Testimonials() {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.name}
-                className="w-full md:w-1/3 flex-shrink-0 px-3"
+                className="w-full md:w-1/3 flex-shrink-0 px-3 mt-3"
               >
                 <div className="group bg-card rounded-2xl p-4 md:p-6 border border-border hover:border-accent/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col relative min-h-fit">
                   {/* Highlight badge */}
@@ -282,7 +279,7 @@ export function Testimonials() {
             type="button"
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className="w-10 h-10 rounded-full bg-foreground text-accent-foreground flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 disabled:hover:scale-100 shadow-md transition"
+            className="w-10 h-10 rounded-full bg-primary text-accent-foreground flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:scale-110 disabled:hover:scale-100 shadow-md transition"
           >
             <Image
                 src={Left}

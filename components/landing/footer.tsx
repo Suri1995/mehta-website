@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import LinkedIn from "@/public/linkedin.webp"
-import Twitter from "@/public/twitter.webp"
-import FaceBook from "@/public/facebook.webp"
-import Instagram from "@/public/instagram-white.webp"
+import LinkedIn from "@/public/linkedin.webp";
+import Twitter from "@/public/twitter.webp";
+import FaceBook from "@/public/facebook.webp";
+import Instagram from "@/public/instagram-white.webp";
 import { useState } from "react";
-import ArrowRight from "@/public/ARROW.png"
-import MapPin from "@/public/mapPin.webp"
-import Phone from "@/public/phone.webp"
-import Mail from "@/public/mail.webp"
+import ArrowRight from "@/public/ARROW.png";
+import MapPin from "@/public/mapPin.webp";
+import Phone from "@/public/phone.webp";
+import Mail from "@/public/mail.webp";
 
 const quickLinks = [
   { href: "#services", label: "Our Services" },
@@ -18,7 +18,7 @@ const quickLinks = [
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faq", label: "FAQs" },
   { href: "#contact", label: "Contact Us" },
-  { href: "#", label: "Privacy Policy"}
+  { href: "#", label: "Privacy Policy" },
 ];
 
 const services = [
@@ -44,39 +44,225 @@ const contactInfo = [
     icon: MapPin,
     description: (
       <>
-      501, Trade Centre, BKC, <br/>Bandra East, Mumbai - 400051
+        501, Trade Centre, BKC, <br />
+        Bandra East, Mumbai - 400051
       </>
     ),
   },
   {
     icon: Phone,
-    description: "+91 98765 43210"
+    description: "+91 98765 43210",
   },
   {
     icon: Mail,
-    description: "info@chatterassociates.com"
+    description: "info@chatterassociates.com",
   },
 ];
 
 export function Footer() {
+  const [allQuickLinks, setAllQuickLinks] = useState(false);
+  const [allServices, setAllServices] = useState(false);
 
-  const [ allQuickLinks, setAllQuickLinks] = useState(false);
-  const [ allServices, setAllServices ] = useState(false);
-
-  const visibleQuickLinks = allQuickLinks
-    ? quickLinks
-    : quickLinks.slice(0, 4);
-
-  const visibleServices = allServices
-    ? services
-    : services.slice(0, 4); 
-
+  // Mobile accordion states
+  const [mobileQuickLinksOpen, setMobileQuickLinksOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileContactOpen, setMobileContactOpen] = useState(false);
 
   return (
-    <footer className="bg-foreground text-background max-w-7xl">
+    <footer className="bg-foreground text-background">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 py-12 md:py-16 max-w-7xl">
+        {/* ================= MOBILE VIEW ================= */}
+        <div className="block lg:hidden">
+          {/* Company Info */}
+          <div className="mb-8">
+            <Link href="/" className="flex items-center gap-3 mb-6">
+              <Image
+                src="logo-white.webp"
+                alt="Mehta-logo"
+                width={300}
+                height={150}
+                className="h-auto w-50 md:w-auto md:h-auto"
+              />
+            </Link>
+
+            <p className="text-background/70 text-sm leading-relaxed mb-6">
+              Expert Chartered Accountants providing comprehensive tax planning,
+              audit, compliance, and business advisory services since 2009.
+            </p>
+
+            {/* Social Links */}
+            <div className="flex gap-3 mb-8">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                  aria-label={social.label}
+                >
+                  <Image
+                    src={social.icon}
+                    alt={social.label}
+                    width={20}
+                    height={20}
+                    className="h-5 w-5"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Accordion - Quick Links */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setMobileQuickLinksOpen(!mobileQuickLinksOpen)}
+              className="w-full flex items-center justify-between py-5 text-left"
+            >
+              <div className="flex flex-col gap-2">
+              <h4 className="font-serif md:font-bold text-xl">Quick Links</h4>
+              <span className="h-0.5 w-11 bg-secondary-foreground"></span>
+              </div>
+              <span
+                className={`transition-transform duration-300 text-xl ${
+                  mobileQuickLinksOpen ? "rotate-180" : "rotate-0"
+                }`}
+              >
+                <Image
+                    src={ArrowRight}
+                    alt="arrow"
+                    width={12}
+                    height={12}
+                    className="h-3 w-3 text-background/40"
+                  />
+              </span>
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobileQuickLinksOpen ? "max-h-[500px] pb-5" : "max-h-0"
+              }`}
+            >
+              <ul className="space-y-3">
+                {quickLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-background/70 hover:text-secondary transition-colors text-sm"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Mobile Accordion - Our Services */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="w-full flex items-center justify-between py-5 text-left"
+            >
+              <div className="flex flex-col gap-2">
+              <h4 className="font-serif md:font-bold text-xl">Our Services</h4>
+              <span className="h-0.5 w-11 bg-secondary-foreground"></span>
+              </div>
+              <span
+                className={`transition-transform duration-300 text-xl ${
+                  mobileServicesOpen ? "rotate-180" : "rotate-0"
+                }`}
+              >
+                <Image
+                    src={ArrowRight}
+                    alt="arrow"
+                    width={12}
+                    height={12}
+                    className="h-3 w-3 text-background/40"
+                  />
+              </span>
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobileServicesOpen ? "max-h-[500px] pb-5" : "max-h-0"
+              }`}
+            >
+              <ul className="space-y-3">
+                {services.map((service) => (
+                  <li key={service}>
+                    <Link
+                      href="#services"
+                      className="text-background/70 hover:text-secondary transition-colors text-sm"
+                    >
+                      {service}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+
+          {/* Mobile Accordion - Contact Info */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setMobileContactOpen(!mobileContactOpen)}
+              className="w-full flex items-center justify-between py-5 text-left"
+            >
+              <div className="flex flex-col gap-2">
+              <h4 className="font-serif md:font-bold text-xl">Contact Us</h4>
+              <span className="h-0.5 w-11 bg-secondary-foreground"></span>
+              </div>
+              <span
+                className={`transition-transform duration-300 text-xl ${
+                  mobileContactOpen ? "rotate-180" : "rotate-0"
+                }`}
+              >
+                <Image
+                    src={ArrowRight}
+                    alt="arrow"
+                    width={12}
+                    height={12}
+                    className="h-3 w-3 text-background/20"
+                  />
+              </span>
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobileContactOpen ? "max-h-[500px] pb-5" : "max-h-0"
+              }`}
+            >
+              <ul className="space-y-3">
+                {contactInfo.map((item, index) => (
+                  <li key={index} className="flex items-center">
+                    <div className="w-10 flex-shrink-0 flex justify-center mt-1">
+                      <Image
+                        src={item.icon}
+                        alt="contact icon"
+                        width={24}
+                        height={24}
+                        className="h-6 w-6 object-contain opacity-80"
+                      />
+                    </div>
+
+                    <div className="ml-2">
+                      <p className="text-background/70 text-sm m-0">
+                        {item.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= DESKTOP VIEW (UNCHANGED) ================= */}
+        <div className="hidden lg:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
@@ -85,13 +271,14 @@ export function Footer() {
                 alt="Mehta-logo"
                 width={300}
                 height={150}
-                className="h-auto w-auto"
+                className="h-auto w-50 md:w-auto md:h-auto"
               />
             </Link>
-            <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Expert Chartered Accountants providing comprehensive tax planning, 
+            <p className="text-background/70 text-[18px] leading-relaxed mb-6">
+              Expert Chartered Accountants providing comprehensive tax planning,
               audit, compliance, and business advisory services since 2009.
             </p>
+
             {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -101,15 +288,15 @@ export function Footer() {
                   className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
                   aria-label={social.label}
                 >
-                <div>
-                  <Image
-                  src={social.icon}
-                  alt={social.label}
-                  width={20}
-                  height={20}
-                  className="h-5 w-5"
-                />
-                </div>
+                  <div>
+                    <Image
+                      src={social.icon}
+                      alt={social.label}
+                      width={20}
+                      height={20}
+                      className="h-5 w-5"
+                    />
+                  </div>
                 </a>
               ))}
             </div>
@@ -117,13 +304,13 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-6">Quick Links</h4>
+            <h4 className="font-serif font-bold text-xl mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {(allQuickLinks ? quickLinks : quickLinks.slice(0, 4)).map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-background/70 hover:text-secondary transition-colors text-sm"
+                    className="text-background/70 hover:text-secondary-foreground transition-colors text-[18px]"
                   >
                     {link.label}
                   </Link>
@@ -152,13 +339,13 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-6">Our Services</h4>
+            <h4 className="font-serif font-bold text-xl mb-6">Our Services</h4>
             <ul className="space-y-3">
               {(allServices ? services : services.slice(0, 4)).map((service) => (
                 <li key={service}>
                   <Link
                     href="#services"
-                    className="text-background/70 hover:text-secondary transition-colors text-sm"
+                    className="text-background/70 hover:text-secondary-foreground transition-colors text-[18px]"
                   >
                     {service}
                   </Link>
@@ -172,7 +359,7 @@ export function Footer() {
                 className="mt-4 text-sm font-medium text-background/40 hover:underline flex justify-center items-center gap-2"
               >
                 {allServices ? "Read Less" : "Read More"}
-                {!allQuickLinks && (
+                {!allServices && (
                   <Image
                     src={ArrowRight}
                     alt="arrow"
@@ -187,28 +374,27 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-6">Contact Us</h4>
+            <h4 className="font-serif font-bold text-xl mb-6">Contact Us</h4>
             <ul className="space-y-3">
-              {contactInfo.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <li key={index} className="flex items-center">
-                    <div className="w-10 flex-shrink-0 flex justify-center mt-1">
-                      <Image
-                        src={item.icon}
-                        alt="contact icon"
-                        className="h-6 w-6 object-contain opacity-80"
-                      />
-                    </div>
+              {contactInfo.map((item, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <div className="flex-shrink-0 flex justify-center mt-1">
+                    <Image
+                      src={item.icon}
+                      alt="contact icon"
+                      width={24}
+                      height={24}
+                      className="h-6 w-6 object-contain opacity-80"
+                    />
+                  </div>
 
-                    <div className="ml-2">
-                      <p className="text-background/70 text-sm m-0">
-                        {item.description}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
+                  <div className="ml-2">
+                    <p className="text-background/70 hover:text-secondary-foreground text-[18px] m-0">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -223,10 +409,13 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-background/60">
-              <p>
-                Developed by{" "}<a href="https://sellute.com/" className="underline font-bold">Sellute</a>
-              </p>
-            </div>
+            <p>
+              Developed by{" "}
+              <a href="https://sellute.com/" className="underline font-bold">
+                Sellute
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

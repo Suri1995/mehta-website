@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import Building2 from "@/public/building-icon.webp";
-import Rocket from "@/public/rocket-icon.webp";
-import Users from "@/public/users-icon.webp";
-import Briefcase from "@/public/corporate.webp";
-import Store from "@/public/ecommerce-icon.webp";
-import Landmark from "@/public/nris.webp";
+import Building2 from "@/public/cooperation.webp";
+import Enterprenuer from "@/public/enterprenuer.webp";
+import Users from "@/public/group.webp";
+import Briefcase from "@/public/company.webp";
+import Store from "@/public/marketplace.webp";
+import Landmark from "@/public/global-network.webp";
 
 const clients = [
   {
@@ -19,7 +19,7 @@ const clients = [
       "Comprehensive accounting and compliance solutions tailored for growing businesses.",
   },
   {
-    icon: Rocket,
+    icon: Enterprenuer,
     isImage: true,
     title: "Startups & Entrepreneurs",
     description:
@@ -84,16 +84,14 @@ export function WhoWeServe() {
             return (
               <div
                 key={client.title}
-                className="group bg-card rounded-2xl p-6 md:p-8 border border-border hover:border-secondary/50 hover:shadow-xl transition-all duration-300"
+                className="group bg-card rounded-2xl p-6 md:p-8 border border-border hover:shadow-xl transition-all duration-300"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 bg-primary/30 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
+                <div className="w-14 h-14 bg-secondary/15 rounded-xl flex items-center justify-center mb-5 group-hover:bg-secondary/5 hover:border-sidebar-ring transition-colors">
                   <Image
                     src={client.icon}
                     alt={client.title}
-                    width={40}
-                    height={30}
-                    className="object-contain"
+                    className="w-5 md:w-8 h-auto object-contain"
                   />
                 </div>
 

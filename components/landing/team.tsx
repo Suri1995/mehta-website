@@ -10,7 +10,6 @@ const teamMembers = [
     clients: "300+",
     specializations: ["Corporate Taxation", "Statutory Audit", "Business Advisory"],
     qualifications: ["FCA", "DISA", "M.Com"],
-    description: "A seasoned professional with expertise in corporate taxation and strategic business advisory. Rajesh has helped numerous businesses optimize their tax strategies and achieve financial growth.",
     linkedin: "#",
     email: "rajesh@chatterassociates.com",
   },
@@ -22,7 +21,6 @@ const teamMembers = [
     clients: "250+",
     specializations: ["GST Compliance", "Internal Audit", "Startup Advisory"],
     qualifications: ["ACA", "CS", "LLB"],
-    description: "Priya brings a unique blend of legal and accounting expertise. Her comprehensive approach to compliance and startup advisory has made her a trusted advisor for emerging businesses.",
     linkedin: "#",
     email: "priya@chatterassociates.com",
   },
@@ -30,8 +28,8 @@ const teamMembers = [
 
 export function Team() {
   return (
-    <section id="team" className="py-7 md:py-20 bg-background max-w-7xl">
-      <div className="container mx-auto px-4">
+    <section id="team" className="py-7 md:py-20 bg-background">
+      <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
             Leadership
@@ -53,7 +51,7 @@ export function Team() {
             >
               {/* Image Section */}
               <div className="relative h-72 md:h-80 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="inset-0 flex items-center justify-center">
                   <div className="w-40 h-40 md:w-48 md:h-48 bg-primary/20 rounded-full flex items-center justify-center">
                     <span className="font-serif text-6xl md:text-7xl font-bold text-primary">
                       {member.name.split(" ").slice(1).map(n => n[0]).join("")}
@@ -61,25 +59,25 @@ export function Team() {
                   </div>
                 </div>
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center text-primary-foreground p-6">
-                    <p className="text-sm leading-relaxed">{member.description}</p>
-                    <div className="flex justify-center gap-4 mt-6">
+                  <div className="text-center text-primary-foreground p-6 w-full">
+                    <div className="flex justify-end gap-4 mt-6">
                       <a
                         href={member.linkedin}
-                        className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-secondary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-foreground/20 rounded-full flex items-center justify-center hover:bg-secondary"
                       >
-                        <Linkedin className="h-5 w-5" />
+                        <Linkedin className="h-5 w-5"/>
                       </a>
+
                       <a
                         href={`mailto:${member.email}`}
-                        className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-secondary transition-colors"
+                        className="w-10 h-10 bg-foreground/20 rounded-full flex items-center justify-center hover:bg-secondary transition-colors"
                       >
                         <Mail className="h-5 w-5" />
                       </a>
                     </div>
                   </div>
-                </div>
               </div>
 
               {/* Content Section */}

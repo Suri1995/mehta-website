@@ -20,19 +20,12 @@ const locations = [
 
 export function Locations() {
   return (
-    <section className="py-16 md:py-24 bg-background max-w-7xl">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
+    <section className="pb-7 md:pb-20 bg-background">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-6 md:mb-11">
+          <span className="text-secondary font-semibold text-lg uppercase tracking-wider">
             Visit Us
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4 text-balance">
-            Our Locations
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Visit us at our convenient office locations or connect with us virtually 
-            from anywhere in India.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
