@@ -21,7 +21,7 @@ const highlights = [
 export function Hero() {
   return (
     // ✅ FULL WIDTH SECTION (fix applied)
-    <section className="relative overflow-hidden w-full text-primary-foreground pb-10">
+    <section className="relative bg-gradient-to-r from-[#0b1624]/90 via-[#1F3A5F]/70 to-[#c5d1dc]/40 overflow-hidden w-full text-primary-foreground">
 
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -126,22 +126,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-
         </div>
-      </div>
-
-      {/* ✅ FIXED FULL-WIDTH WAVE */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-          className="w-full h-[100px] md:h-[120px]"
-        >
-          <path
-            d="M0,80 C240,120 480,40 720,70 C960,100 1200,60 1440,80 L1440,120 L0,120 Z"
-            className="fill-background"
-          />
-        </svg>
       </div>
 
     </section>
