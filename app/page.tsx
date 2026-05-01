@@ -26,7 +26,7 @@ export default function Home() {
       {/* <FloatingCTA /> */}
       
       {/* Hero - Full width */}
-      <section id="hero" className="bg-gradient-to-br from-primary via-primary to-primary/90">
+      <section id="hero" className="bg-[url('/chartedaccounts.webp')] bg-cover bg-center">
         <Hero />
       </section>
       
