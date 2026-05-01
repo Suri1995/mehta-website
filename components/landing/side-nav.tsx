@@ -130,7 +130,7 @@ export function SideNav() {
                   onClick={() => scrollToSection(item.id)}
                   className={`relative flex items-center w-full text-left py-2 px-4 rounded-lg transition-colors duration-150 ${
                     isActive
-                      ? "text-primary font-semibold bg-primary/5"
+                      ? "text-accent font-semibold bg-primary/5"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                   aria-label={`Navigate to ${item.label}`}
@@ -139,7 +139,7 @@ export function SideNav() {
                   <span
                     className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 rounded-r-full transition-[height] duration-150 ${
                       isActive
-                        ? "h-5 bg-primary"
+                        ? "h-5 bg-accent"
                         : "h-0 bg-transparent"
                     }`}
                   />
